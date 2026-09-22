@@ -65,13 +65,7 @@ A complete answer should include the main concepts discussed during the lectures
     - Consider an irregularly shaped homogeneous conducting region with conductivity $\sigma = \sigma_0$. One portion of the boundary is held at a prescribed electric potential, while another portion is connected to ground through a resistor.
     - Derive an appropriate formulation for the electric-potential distribution in the conducting region.
     - Show how the resistive connection leads to a Robin-type boundary condition.
-    - Discuss the role of the coefficients in
-
-      $$
-      \alpha \varphi + \beta \frac{\partial \varphi}{\partial n} = \gamma
-      $$
-
-      and their relation to uniqueness of the solution.
+    - Discuss the role of the coefficients in $\alpha \varphi + \beta \frac{\partial \varphi}{\partial n} = \gamma$ and their relation to uniqueness of the solution.
 
 13. **Uniqueness of Poisson problems**
     - Prove uniqueness for a Poisson problem with Dirichlet boundary conditions.
