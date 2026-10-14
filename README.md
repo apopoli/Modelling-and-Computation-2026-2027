@@ -1,5 +1,8 @@
 # Modelling-and-Computation-2026-2027
 
+## Great resource for learning Matlab
+https://matlabacademy.mathworks.com/it/details/matlab-onramp/gettingstarted
+
 ## Virtuale page
 
 [https://virtuale.unibo.it/course/view.php?id=84132](https://virtuale.unibo.it/course/view.php?id=84132)
