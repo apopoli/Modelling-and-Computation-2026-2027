@@ -31,10 +31,26 @@ end
 % y defined with a vectorized expression
 y = ((x + 1) - 1) ./ x; % ./ element-wise division
 
+% same thing, but through an m-file function
+y = fun_y(x);
+
 % anonymous functions
 y = @(x) ((x + 1) - 1) ./ x;
 
 plot(x,y(x))
 
 % set the limits for the y-axis
-ylim([0.99 1.01])
+% ylim([0.99 1.01])
+
+figure
+x = logspace(-16,1,1e3); % from 1e-16 to 1e1
+semilogx(x,y(x))
+
+h = figure; % handle to figure object
+semilogx(x,(1-y(x))*100,"LineWidth",2)
+grid on
+xlabel('x')
+ylabel('error (%)')
+fontsize(16,'points')
+xlim([1e-16 1e-3])
+exportgraphics(h,'report/figs/myfigure.pdf')
