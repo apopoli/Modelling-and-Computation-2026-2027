@@ -1,0 +1,32 @@
+function [x,phi] = FDM_1D_s1(geom,BC,t)
+%FDM_1D_s1 Solves Poisson equation in 1D for uniform t and Dirichlet BCs
+%   Inputs: geom (structure, geometry), BC (structure, boundary
+%   conditions), t (uniform forcing term) 
+%   Outputs: x (nodes coordinates), phi (nodal values of unknown function)
+
+dx = (geom.b-geom.a)/(geom.n-1); % spacing
+
+K = zeros(geom.n);
+rhs = zeros(geom.n,1);
+
+% loop on internal nodes
+for k = 2:geom.n-1
+    K(k,k-1) = 1; % left node of stencil for row k
+    K(k,k) = -2; % central node of stencil for row k
+    K(k,k+1) = 1; % right node of stencil for row k
+
+    rhs(k) = t*dx^2; % rhs
+end
+% Dirichlet BCs
+K(1,1) = 1; 
+rhs(1) = BC.a; % value of Dirichlet BC in a
+
+K(geom.n,geom.n) = 1;
+rhs(geom.n) = BC.b; % value of Dirichlet BC in b
+
+% solve linear system
+phi = K\rhs;
+
+x = geom.a + dx*(0:geom.n-1);
+
+end

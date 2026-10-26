@@ -1,0 +1,28 @@
+clear variables
+close all % to close all plots
+clc
+
+% m-function [x,phi] = FDM_1D_s1(geom,BC,t)
+
+geom.a = 0; % left boundary
+geom.b = 1; % right boundary
+geom.n = 11; % number of nodes
+
+BC.a = 1; % value of Dirichlet BC in a 
+BC.b = 0; % value of Dirichlet BC in b
+
+t = 5; % forcing term
+
+% call our function!
+[x,dx,phi] = FDM_1D_s1(geom,BC,t);
+
+plot(x,phi,'o','LineWidth',2)
+xlabel('x (m)')
+ylabel('$\varphi$','Interpreter','latex')
+fontsize(16,"points")
+grid 
+
+% exact solution (for uniform t, Dirichlet bcs)
+
+L = geom.b-geom.a;
+phi_e = t/2*dx^2 + (BC.b-BC.a-t/2*L^2)/L.*x + BC.a;
